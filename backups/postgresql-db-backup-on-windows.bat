@@ -13,7 +13,7 @@ set BACKUP_DIR=E:\PostgersqlBackup
 set zip="C:\Program Files\7-Zip\7z.exe"
 set host=127.0.0.1
 set pg_dump="D:\Program Files\PostgreSQL\9.6\bin\pg_dump.exe"
-set PGPASSWORD=<PASSWORD FROM POTGRES>
+set PGPASSWORD=<PASSWORD FOR POSTGRES USER>
 
 echo on
 %pg_dump% -h %host% -p 5432 -U postgres -F c -b -v -f %BACKUP_DIR%\%BACKUP_FILE% %db%
