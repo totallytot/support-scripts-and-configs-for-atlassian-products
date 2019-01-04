@@ -1,0 +1,13 @@
+disable new X-FRAM-OPTIONS security header
+-Dcom.atlassian.jira.clickjacking.protection.disabled=true
+-Dcom.atlassian.jira.clickjacking.protection.exclude=/secure/CreateIssue!default.jspa
+
+set Encoding UTF8
+JIRA:
+-Dsun.jnu.encoding=UTF-8 -Dfile.encoding=UTF8
+Confluence:
+-Dfile.encoding=UTF8 -Djavax.servlet.request.encoding=UTF8
+Both:
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-
