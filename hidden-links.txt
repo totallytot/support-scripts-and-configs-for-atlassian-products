@@ -1,2 +1,5 @@
 Encoding test:
 <your-confluence-url>/admin/encodingtest.action
+
+Force upgrade:
+<your-confluence-url>/admin/do-force-upgrade.action 
