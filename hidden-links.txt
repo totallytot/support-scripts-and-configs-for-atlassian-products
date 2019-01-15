@@ -1,0 +1,2 @@
+Encoding test:
+<your-confluence-url>/admin/encodingtest.action
