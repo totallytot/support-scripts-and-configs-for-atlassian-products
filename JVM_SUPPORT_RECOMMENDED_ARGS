@@ -1,16 +1,19 @@
-disable new X-FRAM-OPTIONS security header
+#disable new X-FRAM-OPTIONS security header
 -Dcom.atlassian.jira.clickjacking.protection.disabled=true
 -Dcom.atlassian.jira.clickjacking.protection.exclude=/secure/CreateIssue!default.jspa
 
-set Encoding UTF8
-JIRA:
+#set Encoding UTF8
+#JIRA:
 -Dsun.jnu.encoding=UTF-8 -Dfile.encoding=UTF8
-Confluence:
+#Confluence:
 -Dfile.encoding=UTF8 -Djavax.servlet.request.encoding=UTF8
-Both:
+#Both:
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-set debug port
+#set debug port
 CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=4002,server=y,suspend=n ${CATALINA_OPTS}"
+
+#set SSL keystore for App
+-Djavax.net.ssl.trustStore="C:\Program Files\Java\jdk1.8.0_102\jre\lib\security\cacerts"
