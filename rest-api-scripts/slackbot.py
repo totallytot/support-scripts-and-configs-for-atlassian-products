@@ -1,3 +1,11 @@
+#Bot created for monitoring active Atlassian Licenses by typing simple commands.
+#Bot created according to this article: https://www.fullstackpython.com/blog/build-first-slack-bot-python.html
+#!Important
+#Don't forget to export SLACK_BOT_TOKEN and change URLs with credentials.
+#Python version 2.7
+#May the force be with you
+
+
 import requests
 import os
 import time
