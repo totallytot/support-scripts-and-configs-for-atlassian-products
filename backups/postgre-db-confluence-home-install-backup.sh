@@ -20,3 +20,5 @@ tar -czpvf $BACK_DIR_C/$D-confluence-opt.tar.gz $DIR_C \
 --exclude=/opt/atlassian/confluence/temp \
 --exclude=/opt/atlassian/confluence/work
 rm -rf $BACK_DIR_C/db
+######Removal of old backups. Alternitavlty, can be configured on s3 bucket side.
+find $BACK_DIR/ -type f -mtime +30 -exec rm -rf {} \;
