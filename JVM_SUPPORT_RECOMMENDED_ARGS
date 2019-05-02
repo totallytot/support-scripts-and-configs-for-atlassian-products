@@ -17,3 +17,6 @@ CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=4002,server=y,suspend=
 
 #set SSL keystore for App
 -Djavax.net.ssl.trustStore="C:\Program Files\Java\jdk1.8.0_102\jre\lib\security\cacerts"
+
+#use login recovery_admin for Confluence
+-Datlassian.recovery.password=<your-password>
