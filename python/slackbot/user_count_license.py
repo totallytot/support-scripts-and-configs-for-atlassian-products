@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
 #export variables from .env file
-project_folder = os.path.expanduser('/home/slackbot')
+project_folder = os.path.expanduser('/your_path_to_.env_file')
 load_dotenv(os.path.join(project_folder, '.env'))
 
 
