@@ -15,7 +15,7 @@ import user_count_license
 import expiration_date
 
 #export variables from .env file
-project_folder = os.path.expanduser('/home/slackbot')
+project_folder = os.path.expanduser('/your_path_to_.env_file')
 load_dotenv(os.path.join(project_folder, '.env'))
 
 # instantiate Slack client
