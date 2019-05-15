@@ -21,3 +21,7 @@ tar -czvpf $BACK_DIR_J/$D-Jira-opt.tar.gz $DIR_JIRA \
 --exclude=/opt/atlassian/jira/temp \
 --exclude=/opt/atlassian/jira/work
 rm -rf $BACK_DIR_J/db
+########removal of old files (30 days)
+if [ -d "$BACK_DIR_J" ]; then
+  find $BACK_DIR_J/ -type f -mtime +30 -exec rm -rf {} \;
+fi
