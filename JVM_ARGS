@@ -12,6 +12,11 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
+#fyi
+-Dsun.jnu.encoding=UTF-8
+-Dfile.encoding=UTF-8
+-Djavax.servlet.request.encoding=UTF-8
+
 #set debug port
 CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=4002,server=y,suspend=n ${CATALINA_OPTS}"
 
