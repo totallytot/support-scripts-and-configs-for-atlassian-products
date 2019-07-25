@@ -25,3 +25,11 @@ CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=4002,server=y,suspend=
 
 #use login recovery_admin for Confluence
 -Datlassian.recovery.password=<your-password>
+
+#JMX
+-Dcom.sun.management.jmxremote 
+-Dcom.sun.management.jmxremote.port=8099 
+-Dcom.sun.management.jmxremote.rmi.port=8099 
+-Dcom.sun.management.jmxremote.ssl=false 
+-Djava.rmi.server.hostname=jira.example.com
+-Djava.net.preferIPv4Stack=true
