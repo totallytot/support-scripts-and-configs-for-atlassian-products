@@ -1,8 +1,17 @@
-#disable new X-FRAM-OPTIONS security header
+# disable new X-FRAM-OPTIONS security header
 -Dcom.atlassian.jira.clickjacking.protection.disabled=true
 -Dcom.atlassian.jira.clickjacking.protection.exclude=/secure/CreateIssue!default.jspa
 
-#set Encoding UTF8
+#set debug port
+CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=4002,server=y,suspend=n ${CATALINA_OPTS}"
+
+#set SSL keystore for App
+-Djavax.net.ssl.trustStore="C:\Program Files\Java\jdk1.8.0_102\jre\lib\security\cacerts"
+
+# use login recovery_admin for Confluence
+-Datlassian.recovery.password=<your-password>
+
+### Encoding UTF8 START ###
 #JIRA:
 -Dsun.jnu.encoding=UTF-8 -Dfile.encoding=UTF8
 #Confluence:
@@ -11,25 +20,25 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
-
-#fyi
+# fyi
 -Dsun.jnu.encoding=UTF-8
 -Dfile.encoding=UTF-8
 -Djavax.servlet.request.encoding=UTF-8
+### Encoding UTF8 END ###
 
-#set debug port
-CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=4002,server=y,suspend=n ${CATALINA_OPTS}"
-
-#set SSL keystore for App
--Djavax.net.ssl.trustStore="C:\Program Files\Java\jdk1.8.0_102\jre\lib\security\cacerts"
-
-#use login recovery_admin for Confluence
--Datlassian.recovery.password=<your-password>
-
-#JMX
+### JMX START ###
 -Dcom.sun.management.jmxremote 
 -Dcom.sun.management.jmxremote.port=8099 
 -Dcom.sun.management.jmxremote.rmi.port=8099 
 -Dcom.sun.management.jmxremote.ssl=false 
 -Djava.rmi.server.hostname=jira.example.com
 -Djava.net.preferIPv4Stack=true
+# default password: /opt/atlassian/jira/jre/lib/management/jmxremote.password
+# Password example: 
+# monitorRole=pass
+# controlRole=pass
+# default permissions: /opt/atlassian/jira/jre/lib/management/jmxremote.access
+# custom location can be set as follows:
+#-Dcom.sun.management.jmxremote.password.file=/opt/atlassian/jmxremote.password
+#-Dcom.sun.management.jmxremote.access.file=/opt/atlassian/jmxremote.access
+### JMX END ###
