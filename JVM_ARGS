@@ -41,4 +41,8 @@ export LANGUAGE=en_US.UTF-8
 # custom location can be set as follows:
 #-Dcom.sun.management.jmxremote.password.file=/opt/atlassian/jmxremote.password
 #-Dcom.sun.management.jmxremote.access.file=/opt/atlassian/jmxremote.access
+# Flight recorder. FYI OpenJDK does not have commercial features or Flight recorder. These are part of the Oracle JDK only.
+-XX:+UnlockCommercialFeatures 
+-XX:+FlightRecorder 
+-XX:FlightRecorderOptions=defaultrecording=true
 ### JMX END ###
