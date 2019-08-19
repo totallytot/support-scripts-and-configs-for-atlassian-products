@@ -2,28 +2,23 @@
 -Dcom.atlassian.jira.clickjacking.protection.disabled=true
 -Dcom.atlassian.jira.clickjacking.protection.exclude=/secure/CreateIssue!default.jspa
 
-#set debug port
+# set debug port
 CATALINA_OPTS="-agentlib:jdwp=transport=dt_socket,address=4002,server=y,suspend=n ${CATALINA_OPTS}"
 
 #set SSL keystore for App
 -Djavax.net.ssl.trustStore="C:\Program Files\Java\jdk1.8.0_102\jre\lib\security\cacerts"
 
-# use login recovery_admin for Confluence
+# use login recovery_admin
 -Datlassian.recovery.password=<your-password>
 
 ### Encoding UTF8 START ###
-#JIRA:
--Dsun.jnu.encoding=UTF-8 -Dfile.encoding=UTF8
-#Confluence:
--Dfile.encoding=UTF8 -Djavax.servlet.request.encoding=UTF8
-#Both:
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-# fyi
 -Dsun.jnu.encoding=UTF-8
 -Dfile.encoding=UTF-8
 -Djavax.servlet.request.encoding=UTF-8
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 ### Encoding UTF8 END ###
 
 ### JMX START ###
@@ -33,16 +28,15 @@ export LANGUAGE=en_US.UTF-8
 -Dcom.sun.management.jmxremote.ssl=false 
 -Djava.rmi.server.hostname=jira.example.com
 -Djava.net.preferIPv4Stack=true
-# default password: /opt/atlassian/jira/jre/lib/management/jmxremote.password
-# Password example: 
-# monitorRole=pass
-# controlRole=pass
+# default file for passwords: /opt/atlassian/jira/jre/lib/management/jmxremote.password
+# Password example: monitorRole=pass controlRole=pass
 # default permissions: /opt/atlassian/jira/jre/lib/management/jmxremote.access
-# custom location can be set as follows:
-#-Dcom.sun.management.jmxremote.password.file=/opt/atlassian/jmxremote.password
-#-Dcom.sun.management.jmxremote.access.file=/opt/atlassian/jmxremote.access
+# custom location can be set as follows: -Dcom.sun.management.jmxremote.password.file=/opt/atlassian/jmxremote.password -Dcom.sun.management.jmxremote.access.file=/opt/atlassian/jmxremote.access
 # Flight recorder. FYI OpenJDK does not have commercial features or Flight recorder. These are part of the Oracle JDK only.
--XX:+UnlockCommercialFeatures # under Oracle license
--XX:+FlightRecorder 
--XX:FlightRecorderOptions=defaultrecording=true
+-XX:+UnlockCommercialFeatures # under Oracle license 
+-XX:+FlightRecorder -XX:FlightRecorderOptions=defaultrecording=true
 ### JMX END ###
+
+# timeouts
+-Dhttp.socketTimeout=<YOUR_NEW_TIMEOUT_IN_MILLISECONDS
+-Dhttp.connection.timeout=<YOUR_NEW_TIMEOUT_IN_MILLISECONDS>
