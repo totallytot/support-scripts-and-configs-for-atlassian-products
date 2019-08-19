@@ -38,5 +38,8 @@ export LANGUAGE=en_US.UTF-8
 ### JMX END ###
 
 # timeouts
--Dhttp.socketTimeout=<YOUR_NEW_TIMEOUT_IN_MILLISECONDS
+-Dhttp.socketTimeout=<YOUR_NEW_TIMEOUT_IN_MILLISECONDS>
 -Dhttp.connection.timeout=<YOUR_NEW_TIMEOUT_IN_MILLISECONDS>
+
+# String deduplication. Works for G1 only
+-XX:+UseG1GC -XX:+UseStringDeduplication -XX:+PrintStringDeduplicationStatistics
