@@ -5,6 +5,8 @@ BACKUP_DATE=`date +%Y-%m-%d_%H-%M-%S`
 DIR_CONFLUENCE="/opt/atlassian/confluence"
 DIR_CONFLUENCE_HOME="/var/atlassian/application-data/confluence"
 S3_BUCKET="s3://aws-test"
+# GB (if tar file is more than 5GB)
+EXPECTED_SIZE=100
 #####
 tar -czf - $DIR_CONFLUENCE $DIR_CONFLUENCE_HOME \
 --exclude=$DIR_CONFLUENCE/jre/lib/management/jmxremote.password \
@@ -18,4 +20,4 @@ tar -czf - $DIR_CONFLUENCE $DIR_CONFLUENCE_HOME \
 --exclude=$DIR_CONFLUENCE_HOME/restore \
 --exclude=$DIR_CONFLUENCE_HOME/export \
 --exclude=$DIR_CONFLUENCE_HOME/restore | \
-aws s3 cp - $S3_BUCKET/confapp01/confluence_backup_$BACKUP_DATE.tar.gz
+aws s3 cp --expected-size=$((1024*1024*1024*$EXPECTED_SIZE)) - $S3_BUCKET/confapp01/confluence_backup_$BACKUP_DATE.tar.gz
