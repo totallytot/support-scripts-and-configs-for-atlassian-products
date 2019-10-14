@@ -7,15 +7,15 @@ DIR_JIRA_HOME="/var/atlassian/application-data/jira"
 S3_BUCKET="s3://test"
 #####
 tar -czf - $DIR_JIRA $DIR_JIRA_HOME \
---exclude=/opt/atlassian/jira/jre/lib/management/jmxremote.password \
---exclude=/opt/atlassian/jira/temp \
---exclude=/opt/atlassian/jira/logs \
---exclude=/opt/atlassian/jira/work \
---exclude=/var/atlassian/application-data/jira/log \
---exclude=/var/atlassian/application-data/jira/analytics-logs \
---exclude=/var/atlassian/application-data/jira/tmp \
---exclude=/var/atlassian/application-data/jira/export \
---exclude=/var/atlassian/application-data/jira/import \
---exclude=/var/atlassian/application-data/jira/plugins/.osgi-plugins \
---exclude=/var/atlassian/application-data/jira/plugins/.bundled-plugins | \
+--exclude=$DIR_JIRA/jre/lib/management/jmxremote.password \
+--exclude=$DIR_JIRA/temp \
+--exclude=$DIR_JIRA/logs \
+--exclude=$DIR_JIRA/work \
+--exclude=$DIR_JIRA_HOME/log \
+--exclude=$DIR_JIRA_HOME/analytics-logs \
+--exclude=$DIR_JIRA_HOME/tmp \
+--exclude=$DIR_JIRA_HOME/export \
+--exclude=$DIR_JIRA_HOME/import \
+--exclude=$DIR_JIRA_HOME/plugins/.osgi-plugins \
+--exclude=$DIR_JIRA_HOME/plugins/.bundled-plugins | \
 aws s3 cp - $S3_BUCKET/jira/jira_backup_$BACKUP_DATE.tar.gz
