@@ -22,3 +22,7 @@ set url_lab="https://wiki.exmample.com/spaces/flyingpdf/pdfpageexport.action?pag
 %curl% -L -u %creds% -X GET -k "%url_t_meal_d%" > "%export_path%\%current_date_time% test4.pdf"
 %curl% -L -u %creds% -X GET -k "%url_orders%" > "%export_path%\%current_date_time% test5.pdf"
 %curl% -L -u %creds% -X GET -k "%url_lab%" > "%export_path%\%current_date_time% test6.pdf"
+
+mkdir d:\TempFolderForOldPdfFiles
+robocopy %export_path% d:\TempFolderForOldPdfFiles /mov /minage:90
+rmdir /s /q d:\TempFolderForOldPdfFiles
