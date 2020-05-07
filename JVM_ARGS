@@ -50,3 +50,6 @@ export LANGUAGE=en_US.UTF-8
 # -XX:ParallelGCThreads: Sets the number of threads used during parallel phases of the garbage collectors. The default value varies with the platform on which the JVM is running.
 # -XX:ConcGCThreads: Number of threads concurrent garbage collectors will use. The default value varies with the platform on which the JVM is running.
 # -XX:InitiatingHeapOccupancyPercent: Percentage of the (entire) heap occupancy to start a concurrent GC cycle. GCs that trigger a concurrent GC cycle based on the occupancy of the entire heap and not just one of the generations, including G1, use this option. A value of 0 denotes 'do constant GC cycles'. The default value is 45.
+
+# for Jira
+-XX:+UseG1GC -XX:InitiatingHeapOccupancyPercent=70 -XX:+ExplicitGCInvokesConcurrent -XX:MaxGCPauseMillis=200
