@@ -1,3 +1,7 @@
+# get cert and import it into jvm
+openssl s_client -showcerts -connect jira.example.com:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > /tmp/jira.pem
+/opt/atlassian/jira/jre/bin/keytool -import -alias jira.example.com -keystore /opt/atlassian/jira/jre/lib/security/cacerts -file /tmp/jira.pem
+
 REM Combine the private key and the certificate into a PKCS12 keystore
 cd c:\OpenSSL-Win64\bin\
 openssl.exe pkcs12 -export -in C:\certs\wildcard_cert.crt -inkey C:\certs\private.key -out C:\certs\conf.jks -name conf -CAfile C:\certs\gd_bundle-g2.crt -caname root
